@@ -1,0 +1,43 @@
+% Chapter Template
+
+\chapter{Conclusions and suggestions for future work} % Main chapter title
+
+\label{Chapter7} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+%\lhead{Chapter 7. \emph{Conclusions and future work}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+This chapter addresses the conclusions extracted from the obtained results as well as some pointers which could be useful when future working on this type of networks.
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Conclusions}
+
+This project demonstrated that it is possible to build an entire sensor network through prototyping, thus reducing development time and development costs. Although it is true that the final users will require a little bit of background in sensor networks and programming to adapt the system to his/her needs, this grade of involvement is inherent to every BuB system.
+
+This solution can be considered then a good solution to those seeking a cheap and flexible alternative to the presented services in chapter \ref{Chapter2}. Any kind of data can be now automatically uploaded to Xively and a Nimbits cloud.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Future work}
+
+In the following bulleted list I present some ideas that are offered in order to improve this work in future iterations.
+
+\begin{itemize}
+    \item The current program for the Arduino consumes a reasonable amount of power. To solve this problem, one could:
+        \begin{itemize}
+            \item Using the \texttt{narcoleptic} library\footnote{\url{https://code.google.com/p/narcoleptic/}}, we can put the whole Arduino in sleep mode and wake it up when desired. This would be the perfect solution for end devices, since they would not need to forward packets for other devices.
+            \item Another option however, is to manually tweak the \texttt{sleep} library from the AVR libraries (available from the Arduino IDE). According to the official documentation from Atmel\footnote{Documentation can be found at \url{http://www.atmel.com/Images/doc8161.pdf}, at page 39.}, the microcontroller can sleep while keeping some clocks and interfaces awake (i.e. powering pins). Hence, although the Arduino can sleep, the XBee can still be working relaying messages. This solution, although more complex, can serve for end devices and routers.
+        \end{itemize}
+    \item Create more uploaders so data can be uploaded to even more data storage clouds, since at the time of writing data can just be uploaded to Xively and Nimbits.
+    \item Metadata generation, as explained in chapter \ref{Chapter5}, could be done automatically.
+    \item Although the system works pretty well with ZigBee, the implementation is not fully open\footnote{Although there are some open implementations like Open-ZB or ZBOSS.}. Thus testing open standards such as DASH7\footnote{\url{http://dash7.org}} would make this network completely open.
+\end{itemize}

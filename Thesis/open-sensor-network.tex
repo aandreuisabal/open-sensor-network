@@ -1,0 +1,178 @@
+\documentclass[12pt, a4paper,twoside]{tesi_upf}
+
+
+%CODIFICACIÓ
+\usepackage[latin1]{inputenc}
+
+
+%IDIOMES
+\usepackage[catalan,english]{babel}
+
+%NOMÉS PER A OBTENIR INDICACIÓ DEL MARC EN MIDA A4
+\usepackage[cam,a4,center,frame]{crop}
+
+%PER A INCLOURE GRÀFICS I EL LOGO DE LA UPF
+\usepackage{graphicx}
+
+%FONTS TIMES O GARAMOND, 
+\usepackage{times}
+%\usepackage{garamond}
+
+%SENSE HEADINGS: NO MODIFICAR
+\pagestyle{plain}
+
+%PER A L'ÍNDEX DE MATÈRIES
+\usepackage{makeidx}
+\makeindex
+
+%ESTIL DE BIBLIOGRAFIA
+\bibliographystyle{apalike}
+
+
+%AQUEST DOCUMENT ÉS EN CATALÀ
+\selectlanguage{catalan}
+
+%EN COMPTES DE ÍNDEX, LA TAULA DE CONTINGUTS ES TITULA SUMARI
+\addto\captionscatalan
+  {\renewcommand{\contentsname}{\Large \sffamily Sumari}}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+% CUSTOM PACKAGES
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+\usepackage{hyperref}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\usepackage{pdfpages}
+
+
+%AFEGIU EN AQUESTA PART LES VOSTRES DADES
+\title{Open Sensor Network}
+%\subtitle{El subtítol de la tesi: Opcional}
+\author{Alejandro Andreu Isábal}
+\thyear{2013}
+\department{Departament de Tecnologies de la Informació i les Comunicacions}
+\supervisor{Jaume Barceló Vicens}
+
+
+\begin{document}
+
+\pdfstringdefDisableCommands{%
+\let\MakeUppercase\relax
+}
+
+
+\frontmatter
+
+\maketitle
+
+\cleardoublepage
+
+
+%%%%%% Dedicatòria; si no es vol posar, comenteu fins a final de dedicatòria
+
+\noindent Dedicated to my parents, who always believed in me, and who never hesitated on answering my infancy \emph{``why does this work?''} questions.
+\cleardoublepage
+
+%%%%%% Final de dedicatòria
+
+
+%%%%%% Agraïments; si no es vol posar, comenteu fins a final de agraïments
+\noindent {\Large \sffamily Acknowledgments} 
+\\
+
+Foremost, I would like to thank my project supervisor, Jaume Barceló for his patience, motivation and guidelines. His pointers always motivated me to explore unknown horizons and I ended up learning a huge amount of knowledge.
+
+I also strongly thank the open source community, which has been as well so motivating and helpful, and never has stopped to help. Without it, I probably could never have finished my work.
+
+Thanks to the other fellows of BuB4EU Jorge Beltrán, Nacho Justel and Fernando Gros for accompanying me in this adventure.
+
+Finally, my sincere gratitude as well to the European Commission through the project Commons for Europe (CIP-ICT-PSP-2011-5-297191) which was the initial seed of this work.
+
+\cleardoublepage
+
+%%%%%% Final dels agraïments
+
+%ABSTRACT EN DOS IDIOMES. COM A MÍNIM CATALÀ. SI L'ALTRE ÉS EN CASTELLA CANVIEU EL QUE POSA ABSTRACT
+\selectlanguage{english}
+\section*{\Large \sffamily Abstract}
+Sensor networks are increasingly being used for environmental monitoring to anticipate or react to certain events. Despite many initiatives seemingly encouraging and being based on the use of sensor networks, only a few are really open. In this thesis we design, prototype and test a wireless sensor network using open hardware and open source software. Arduino and ZigBee are the main bases for the sensor nodes, and a Raspberry Pi is used as a data sink. Gathered information is then uploaded to cloud platforms, making it available to developers which can bring new ideas to life. The proposed solution is an economical, flexible and do-it-yourself alternative to those willing to collect and share sensory data.
+
+
+\selectlanguage{catalan}
+\vspace*{\fill}
+\section*{\Large \sffamily  Resum}
+Les xarxes de sensors són cada cop més utilitzades per la monitorització mediambiental per tal d'anticipar-se o reaccionar davant determinats esdeveniments. Malgrat que moltes iniciatives estan basades en l'ús de les xarxes de sensors, només unes poques són realment obertes. En aquesta tesis es realitza el disseny, el prototip i el testing d'una xarxa de sensors sense fils utilitzant hardware obert i programari de codi obert. L'Arduino i ZigBee són les bases principals pels nodes de sensors, i una Raspberry Pi s'utilitza com a receptor de dades. La informació recopilada es puja a les plataformes en el núvol, de manera que està disponible pels desenvolupadors que poden aportar noves idees a la vida. La solució proposada és una alternativa econòmica, flexible i ``do-it-yourself'' per a aquells que estan disposats a recollir i compartir dades de sensors.
+\vspace*{\fill}
+
+\cleardoublepage
+%FIN DE ABSTRACTE
+
+%PREFACI OPCIONAL. SI NO ES VOL, COMENTEU FINS EL FINAL DE PREFACI
+%{\bf Prefaci}
+
+%\cleardoublepage
+%FINAL DE PREFACI
+
+
+%TAULA DE CONTINGUTS: OBLIGATÒRIA
+\selectlanguage{english}
+\tableofcontents
+
+%INDEX DE FIGURES; NOMÉS ES POSA SI HI HA FIGURES
+\listoffigures
+%Fa que aparegui al sumari
+\addcontentsline{toc}{chapter}{List of figures}
+
+%INDEX DE TAULES; NOMÉS ES POSA SI HI HA TAULES
+\listoftables
+%Fa que aparegui al sumari
+\addcontentsline{toc}{chapter}{List of tables}
+
+%COMENÇA EL TEXT
+\mainmatter
+
+\input{./Chapters/Chapter1}
+\input{./Chapters/Chapter2}
+\input{./Chapters/Chapter3}
+\input{./Chapters/Chapter4}
+\input{./Chapters/Chapter5}
+\input{./Chapters/Chapter6}
+\input{./Chapters/Chapter7}
+
+
+
+\bibliography{Bibliography}
+
+\appendix
+\input{./Appendices/AppendixA}
+\includepdf[pages={-}]{./Appendices/project_charter.pdf}
+\input{./Appendices/AppendixB}
+
+\backmatter
+\printindex
+
+
+
+
+
+\end{document}
+
+
+%NUMERACIÓ DE LA PÀGINA EXTERIOR EXCEPTE EN LA PRIMERA PÀGINA DE CADA CAPÍTOL
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
+
+
+%MUTIPLES ÍNDEX
+%En el preàmbul
+\usepackage{multind}
+\makeindex{authors}
+%Introducció d'entrades la forma
+\index{authors}{Einstein}
+%Situació de l'Índex
+\printindex{authors}{Author index}
+%Cal eliminar les comandes \usepakage{makeidx} \makeindex \printindex
+%cal exacutar des de la línia de comandes makeindex authors
